@@ -11,38 +11,65 @@ body {
 }
 
 p {
-  margin: 0;
-  padding-bottom: 16px;
-  font-size: 20px;
-  line-height: 30px;
+  margin: 0; /* ok */
+  margin-bottom: 16px; /* == 1rem !! */
+  /* font-size: 20px; */
+  font-size: 1.25rem; /* 20px = 20 / 16 = 1.25 */
+  /* line-height: 30px; */
+  /* line-height: 1.875; */
+  line-height: 1.5;
   font-weight: 500;
+}
+
+/* use last child ! */
+p:last-child {
+  margin-bottom: 0;
 }
 
 /* Add styles here! */
 
 .max-width-wrapper {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  max-width: 800px; /* OK */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* rewrite as:  margin: 0 auto; !! */
+  margin: 0 auto;
+  /* 20 ?? */
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+  padding: 0 24px;
+}
+
+main {
+  background-color: #666666;
+  border-top: 8px solid #999999; /* could have been border-bottom on header ;) */
+  /* strange... */
+  /* padding: 72px 0 66px; */
+  padding: 64px 0;
 }
 
 h1.title {
   margin: 0;
   font-weight: 800;
-  font-size: 32px;
-  line-height: 120%;
-  padding-bottom: 48px;
+  font-size: 32px; /* = 2rem !! */
+  line-height: 120%; /* = 1.2*/
+  padding-bottom: 48px; /* = 48/16 = 3rem */
 }
 
 .indented-heading {
   background-color: #ffbf00;
   border-bottom: 8px solid #cc9900;
-  padding: 16px 32px 15px;
+  padding: 16px 32px 15px; /* padding: 16px 32px was ok :) */
   width: fit-content;
-  margin-left: -32px;
-  margin-top: 8px;
+  margin-left: -32px; /* ok */
+  /* margin-top: 8px; not ok */
+  margin-top: -16px;
+  margin-bottom: 1rem;
+
+  /* font size !*/
+  font-size: 1.5rem; /* = 32px */
+  /* line height */
+  line-height: 1.2;
 }
 
 .intro-chunk {
@@ -55,16 +82,13 @@ h1.title {
   color: #009966;
 }
 
-main {
-  background-color: #666666;
-  border-top: 8px solid #999999;
-  padding: 72px 0 66px;
-}
-
 .card {
   background-color: white;
   border-bottom: 8px solid #999999;
-  margin: 0 -20px;
-  /* collapsing margin :/ */
-  padding: 1px 20px;
+  /* should have been -24px */
+  /* margin: 0 -20px; */
+  margin: 0 -24px;
+  /* compensate for negative margin with equal padding... */
+  /* padding: 1px 20px 24px; */
+  padding: 24px;
 }
